@@ -7,15 +7,15 @@ DIST_DIR=$(RES_DIR)/dist
 RES_DIR320=src/gtk-3.20
 SCSS_DIR320=$(RES_DIR320)/scss
 DIST_DIR320=$(RES_DIR320)/dist
-INSTALL_DIR=$(DESTDIR)/usr/share/themes/Numix
+INSTALL_DIR=$(DESTDIR)$(datadir)/themes/Numix
 ROOT_DIR=${PWD}
 UTILS=scripts/utils.sh
 
 all: clean gresource
 
 css:
-	$(SASS) --update $(SASSFLAGS) $(SCSS_DIR):$(DIST_DIR)
-	$(SASS) --update $(SASSFLAGS) $(SCSS_DIR320):$(DIST_DIR320)
+	$(SASS) $(SASSFLAGS) $(SCSS_DIR):$(DIST_DIR)
+	$(SASS) $(SASSFLAGS) $(SCSS_DIR320):$(DIST_DIR320)
 
 gresource: css
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(RES_DIR) $(RES_DIR)/gtk.gresource.xml
