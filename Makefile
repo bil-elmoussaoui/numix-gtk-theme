@@ -14,8 +14,8 @@ UTILS=scripts/utils.sh
 all: clean gresource
 
 css:
-	$(SASS) $(SASSFLAGS) $(SCSS_DIR):$(DIST_DIR)
-	$(SASS) $(SASSFLAGS) $(SCSS_DIR320):$(DIST_DIR320)
+	$(SASS) $(SASSFLAGS) $(SCSS_DIR) $(DIST_DIR)
+	$(SASS) $(SASSFLAGS) $(SCSS_DIR320) $(DIST_DIR320)
 
 gresource: css
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(RES_DIR) $(RES_DIR)/gtk.gresource.xml
